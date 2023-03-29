@@ -27,7 +27,7 @@ class Application(tk.Frame):
                 print("FOUT")
         print("Aantal verdiende punten zijn:", punten)
 
-woorden = ["appel", "peer", "aardbei"]
+woorden = ["appel", "peer", "aardbei","watermeloen"]
 punten = 0
 
 if __name__ == "__main__":
