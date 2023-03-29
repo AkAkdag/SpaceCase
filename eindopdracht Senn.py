@@ -1,6 +1,7 @@
 import turtle
 from turtle import *
 import tkinter as tk
+from tkinter import *
 
 
 # functions turtle movement
@@ -30,14 +31,6 @@ def pen_up():
     Turtle.penup()
 def pen_down():
     Turtle.pendown()
-def pen_speed_up():
-    speed = Turtle.speed()
-    speed = speed + 5
-    Turtle.speed(speed)
-def pen_speed_down():
-    speed = Turtle.speed()
-    speed = speed - 5
-    Turtle.speed(speed)
 
 # functions Turtle visible or invisible
 def hide_turtle():
@@ -70,11 +63,12 @@ def repeating_circle():
         # cirkels maken
         col()
         Turtle.circle(rad)
-        # als geen rotate 90 dan saaie cirkels
         Turtle.right(90)
         rad = rad + 10
         s = s + 10000
         Turtle.speed(s)
+
+
 
 if __name__ == "__main__":
 
@@ -85,9 +79,11 @@ if __name__ == "__main__":
     canvas.pack(side=tk.LEFT)
 
     screen = turtle.TurtleScreen(canvas)
-    screen.bgcolor("cyan")
-
+    screen.bgcolor("lightgray")
+    
     # turtle movement
+    Label = tk.Label(root, text="Turtle movement", width=15, height=3)
+    Label.pack()
     button = tk.Button(root, text="forward 50", command=forward, width=15)
     button.pack()
     button = tk.Button(root, text="forward 10", command=forward_10, width=15)
@@ -102,6 +98,8 @@ if __name__ == "__main__":
     button.pack()
 
     # turtle pen change
+    Label = tk.Label(root, text="pen size changes", width=15, height=3)
+    Label.pack()
     button = tk.Button(root, text="pen size up 5", command=pen_size_up, width=15)
     button.pack()
     button = tk.Button(root, text="pen size down 5", command=pen_size_down, width=15)
@@ -110,18 +108,18 @@ if __name__ == "__main__":
     button.pack()
     button = tk.Button(root, text="pen down", command=pen_down, width=15)
     button.pack()
-    button = tk.Button(root, text="pen speed up", command=pen_speed_up, width=15)
-    button.pack()
-    button = tk.Button(root, text="pen speed down", command=pen_speed_down, width=15)
-    button.pack()
 
     # turtle visible or invisible
+    Label = tk.Label(root, text="Turtle visibility", width=15, height=3)
+    Label.pack()
     button = tk.Button(root, text="hide turtle", command=hide_turtle, width=15)
     button.pack()
     button = tk.Button(root, text="show turtle", command=show_turtle, width=15)
     button.pack()
 
     # turtle utility
+    Label = tk.Label(root, text="Turtle utility", width=15, height=3)
+    Label.pack()
     button = tk.Button(root, text="home", command=home, width=15)
     button.pack()
     button = tk.Button(root, text="clear", command=turtle_clear, width=15)
@@ -129,6 +127,8 @@ if __name__ == "__main__":
     button = tk.Button(root, text="reset", command=turtle_reset, width=15)
     button.pack()
 
+    Label = tk.Label(root, text="Shapes", width=15, height=3)
+    Label.pack()
     button = tk.Button(root, text="repeating circle", command=repeating_circle, width=15)
     button.pack()
 
