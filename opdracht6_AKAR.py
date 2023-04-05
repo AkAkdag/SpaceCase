@@ -6,7 +6,7 @@ class Application(tk.Frame):
         self.master = master
         self.pack()
         self.create_widgets()
-        
+     
 
     def create_widgets(self):
         self.label = tk.Label(self, text="Raad de naam van een vrucht. (Je hebt maximaal 5 pogingen!)")
@@ -22,9 +22,14 @@ class Application(tk.Frame):
 
     def woordRaden(self):
         geradenWoord = self.entry.get()
-        if geradenWoord in self.woorden:
+        if geradenWoord in self.woorden and geradenWoord not in self.geraden_woorden:
             self.punten += 1
             print("GOED")
+            self.geraden_woorden.append(geradenWoord)
+
+        elif geradenWoord in self.geraden_woorden:
+            print("Dit woord is geraden")
+
         else:
             print("FOUT")
         self.pogingen -= 1
@@ -43,6 +48,7 @@ class Application(tk.Frame):
     woorden = ["appel", "peer", "aardbei", "watermeloen", "banaan"]
     punten = 0
     pogingen = 5
+    geraden_woorden = []
 
 if __name__ == "__main__":
     root = tk.Tk()
