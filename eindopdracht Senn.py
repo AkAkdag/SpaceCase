@@ -45,6 +45,12 @@ def turtle_clear():
     Turtle.clear()
 def turtle_reset():
     Turtle.reset()
+def turtle_undo():
+    Turtle.undo()
+
+# functions Turtle shapes
+def circle():
+    Turtle.circle(20)
 
 def repeating_circle():
     rad = 10
@@ -75,11 +81,12 @@ if __name__ == "__main__":
     root = tk.Tk()
 
     canvas = tk.Canvas(root)
-    canvas.config(width=1200, height=700)
+    canvas.config(width=1200, height=700, borderwidth=2, relief="solid")
     canvas.pack(side=tk.LEFT)
 
     screen = turtle.TurtleScreen(canvas)
     screen.bgcolor("lightgray")
+    
     
     # turtle movement
     Label = tk.Label(root, text="Turtle movement", width=15, height=3)
@@ -126,9 +133,14 @@ if __name__ == "__main__":
     button.pack()
     button = tk.Button(root, text="reset", command=turtle_reset, width=15)
     button.pack()
+    button = tk.Button(root, text="undo", command=turtle_undo, width=15)
+    button.pack()
 
+    # Turtle shapes
     Label = tk.Label(root, text="Shapes", width=15, height=3)
     Label.pack()
+    button = tk.Button(root, text="circle", command=circle, width=15)
+    button.pack()
     button = tk.Button(root, text="repeating circle", command=repeating_circle, width=15)
     button.pack()
 
