@@ -6,10 +6,10 @@ class Application(tk.Frame):
         self.master = master
         self.pack()
         self.create_widgets()
-        self.woordRaden()
+        
 
     def create_widgets(self):
-        self.label = tk.Label(self, text="Raad de naam van een vrucht")
+        self.label = tk.Label(self, text="Raad de naam van een vrucht. (Je hebt maximaal 5 pogingen!)")
         self.label.pack()
         self.entry = tk.Entry(self, width=5)
         self.entry.pack()
@@ -35,6 +35,7 @@ class Application(tk.Frame):
             return
 
         if self.pogingen == 0:
+            print("Je hebt", self.punten, "punten gehaald.")
             print("Maximum aantal gokken bereikt.")
             self.raden_button["state"] = "disabled"
             return
