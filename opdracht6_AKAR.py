@@ -1,9 +1,10 @@
 import tkinter as tk
 
 class Application(tk.Frame):
-    def __init__(self, master=None):
+    def __init__(self, frame, master=None):
         super().__init__(master)
         self.master = master
+        self.frame = frame
         self.pack()
         self.create_widgets()
      
