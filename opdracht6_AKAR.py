@@ -1,10 +1,9 @@
 import tkinter as tk
 
 class Application(tk.Frame):
-    def __init__(self, frame, master=None):
+    def __init__(self, master=None):
         super().__init__(master)
         self.master = master
-        self.frame = frame
         self.pack()
         self.create_widgets()
      
@@ -21,28 +20,35 @@ class Application(tk.Frame):
         self.quit_button = tk.Button(self, text="Afsluiten", command=self.master.quit)
         self.quit_button.pack(side="bottom")
 
+        self.antwoord_label = tk.Label(self, text="")
+        self.antwoord_label.pack()
+
+        self.pogingen_label = tk.Label(self, text="Pogingen: 5")
+        self.pogingen_label.pack()
+
     def woordRaden(self):
         geradenWoord = self.entry.get()
         if geradenWoord in self.woorden and geradenWoord not in self.geraden_woorden:
             self.punten += 1
-            print("GOED")
+            self.antwoord_label.configure(text="GOED")
             self.geraden_woorden.append(geradenWoord)
 
         elif geradenWoord in self.geraden_woorden:
-            print("Dit woord is geraden")
+            self.antwoord_label.configure(text="Dit woord is al geraden")
 
         else:
-            print("FOUT")
+            self.antwoord_label.configure(text="FOUT")
         self.pogingen -= 1
 
+        self.pogingen_label.configure(text="Pogingen: " + str(self.pogingen))
+
         if self.punten == 5:
-            print("Je hebt het maximale aantal punten bereikt.")
+            self.antwoord_label.configure(text="Je hebt het maximale aantal punten bereikt.")
             self.raden_button["state"] = "disabled"
             return
 
         if self.pogingen == 0:
-            print("Je hebt", self.punten, "punten gehaald.")
-            print("Maximum aantal gokken bereikt.")
+            self.antwoord_label.configure(text="Je hebt " + str(self.punten) + " punten gehaald. Maximum aantal gokken bereikt.")
             self.raden_button["state"] = "disabled"
             return
 
