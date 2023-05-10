@@ -65,4 +65,3 @@ btn_submit.bind("<Button-1>", handle_submit)
 
 window.configure(bg="white")  # achtergrondkleur van het venster
 window.mainloop()
-
