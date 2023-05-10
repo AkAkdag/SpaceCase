@@ -1,6 +1,6 @@
 
 from tkinter import *
-import eindopdracht
+# import Eindopdracht
 import opdracht6_AKAR
 
 
@@ -61,7 +61,7 @@ frame_Senn = Frame(borderwidth=10)
 
 
 # FRAME VOOR THING 3 --------------------------------
-frame_akkar = opdracht6_AKAR.Application(Frame(borderwidth=10), window)
+frame_akkar = opdracht6_AKAR.Application(window)
 
 
 # FRAME VOOR THING 4 --------------------------------
