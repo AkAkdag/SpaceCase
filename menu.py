@@ -1,7 +1,7 @@
-
 from tkinter import *
-# import Eindopdracht
+import eindopdracht
 import opdracht6_AKAR
+
 
 
 # Maak een nieuw window met een titel
@@ -55,13 +55,16 @@ label_1.pack()
 
 
 # FRAME VOOR THING 2 --------------------------------
+# eindopdrachtSenn = eindopdracht.tekenen(Frame(borderwidth=10))
 frame_Senn = Frame(borderwidth=10)
-
+test = eindopdracht.tekenen(frame_Senn)
+frame_Senn = test.returnFrame()
 
 
 
 # FRAME VOOR THING 3 --------------------------------
-frame_akkar = opdracht6_AKAR.Application(window)
+# frame_akkar = opdracht6_AKAR.Application(window)
+frame_akkar = Frame(borderwidth=10)
 
 
 # FRAME VOOR THING 4 --------------------------------
